@@ -1,45 +1,42 @@
-/* Reset default spacing */
 body {
     margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    background: #0f2027;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
     color: white;
-    text-align: center;
 }
 
-/* Main heading */
-h1 {
-    font-size: 36px;
-    letter-spacing: 2px;
-    margin-top: 20px;
+/* Animated circles */
+.background span {
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    animation: float 25s linear infinite;
+    border-radius: 50%;
+    bottom: -150px;
 }
 
-/* Sub heading */
-h3 {
-    color: #00ffcc;
-    letter-spacing: 3px;
-    margin-top: 10px;
-}
+/* Different sizes & positions */
+.background span:nth-child(1) { left: 10%; animation-duration: 20s; }
+.background span:nth-child(2) { left: 25%; width: 60px; height: 60px; animation-duration: 25s; }
+.background span:nth-child(3) { left: 40%; animation-duration: 18s; }
+.background span:nth-child(4) { left: 60%; width: 80px; height: 80px; animation-duration: 30s; }
+.background span:nth-child(5) { left: 80%; animation-duration: 22s; }
 
-/* Container card */
-.container {
-    margin-top: 60px;
-    padding: 30px;
-    background: rgba(0, 0, 0, 0.4);
-    display: inline-block;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-}
-
-/* Highlight text */
-.highlight {
-    color: #ffd700;
-}
-
-/* Small screen support */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 28px;
+/* Float animation */
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
     }
-}s
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
